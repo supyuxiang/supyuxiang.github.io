@@ -5,224 +5,337 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Yuxiang Feng</title>
   <meta name="description" content="Yuxiang Feng — incoming Ph.D. student at Shanghai Jiao Tong University. Foundation models and representation learning." />
-  <meta property="og:title" content="Yuxiang Feng" />
-  <meta property="og:description" content="Incoming Ph.D. student, School of Artificial Intelligence, Shanghai Jiao Tong University." />
-  <link rel="icon" href="https://github.com/supyuxiang.png" />
+  <link rel="icon" href="images/profile.jpg" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   <style>
     :root {
-      --ink: #1c1914;
-      --muted: #6a645a;
-      --paper: #f6f1e7;
-      --rule: #d9d0c1;
-      --accent: #8b3a2d;
+      --nav: #0066cc;
+      --nav-border: #0055aa;
+      --link: #224b8d;
+      --badge: #00369f;
+      --text: #3d4144;
+      --muted: #6a737b;
+      --line: #efefef;
+      --max: 1120px;
+      --sidebar: 230px;
     }
     * { box-sizing: border-box; }
-    html, body { margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Songti SC", "Noto Serif SC", serif;
-      background: var(--paper);
-      color: var(--ink);
-      line-height: 1.55;
+      margin: 0;
+      color: var(--text);
+      font-family: "Source Sans 3", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      background: #fff;
     }
-    main {
-      max-width: 42rem;
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .masthead {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: var(--nav);
+      border-bottom: 1px solid var(--nav-border);
+    }
+    .masthead nav {
+      max-width: var(--max);
       margin: 0 auto;
-      padding: 4.5rem 1.5rem 6rem;
-    }
-    header {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 1.15rem 1.35rem;
-      align-items: start;
-    }
-    header img.avatar {
-      width: 5.5rem;
-      height: 5.5rem;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 1px solid var(--rule);
-      background: #efe8dc;
-    }
-    header h1 {
-      font-size: 2.15rem;
-      font-weight: 600;
-      letter-spacing: -0.03em;
-      margin: 0 0 0.35rem;
-    }
-    header p.sub {
-      margin: 0.15rem 0 0;
-      color: var(--muted);
-      font-size: 1.02rem;
-    }
-    header nav {
-      grid-column: 1 / -1;
-      margin-top: 0.35rem;
       display: flex;
       flex-wrap: wrap;
-      gap: 0.85rem 1.25rem;
+      gap: 0.15rem 1.15rem;
+      padding: 0.7rem 1.25rem;
+    }
+    .masthead a {
+      color: #fff;
+      font-family: "Trebuchet MS", Helvetica, sans-serif;
       font-size: 0.95rem;
     }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    section { margin-top: 2.75rem; }
-    h2 {
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
+    .masthead a:hover { color: rgba(255,255,255,.85); text-decoration: none; }
+    .layout {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: var(--sidebar) 1fr;
+      gap: 2.4rem;
+      padding: 1.6rem 1.25rem 4rem;
+      align-items: start;
+    }
+    .sidebar {
+      position: sticky;
+      top: 3.4rem;
+      text-align: center;
+    }
+    .sidebar img.avatar {
+      width: 168px;
+      height: 168px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #f0f0f0;
+    }
+    .sidebar h1 {
+      margin: 0.85rem 0 0.35rem;
+      font-size: 1.45rem;
+      color: #2d2d2d;
+    }
+    .sidebar .role {
       color: var(--muted);
-      border-bottom: 1px solid var(--rule);
-      padding-bottom: 0.45rem;
-      margin: 0 0 1.1rem;
+      font-size: 0.95rem;
+      margin: 0 0 1rem;
     }
-    .item { margin: 0 0 1.45rem; }
-    .item h3 {
-      font-size: 1.08rem;
-      font-weight: 600;
-      margin: 0 0 0.2rem;
-    }
-    .item .meta {
-      color: var(--muted);
-      font-size: 0.92rem;
-      margin: 0 0 0.4rem;
-    }
-    .item p { margin: 0; }
-    ol.pubs {
+    .sidebar ul {
+      list-style: none;
       margin: 0;
       padding: 0;
-      list-style: none;
-      counter-reset: pub;
+      text-align: left;
+      display: inline-block;
     }
-    ol.pubs li {
-      position: relative;
-      padding-left: 2.1rem;
+    .sidebar li { margin: 0.35rem 0; }
+    .sidebar i { width: 1.35rem; color: #555; }
+    article h1 {
+      font-size: 1.55rem;
+      margin: 1.7rem 0 0.85rem;
+      padding-bottom: 0.2rem;
+      border-bottom: 1px solid var(--line);
+      color: #222;
+    }
+    article h1:first-child { margin-top: 0.2rem; }
+    .edu, .exp {
+      display: flex;
+      align-items: center;
+      gap: 1.15rem;
       margin: 0 0 1.15rem;
-      text-indent: -2.1rem;
     }
-    ol.pubs li::before {
-      counter-increment: pub;
-      content: "[" counter(pub) "]";
-      font-variant-numeric: tabular-nums;
-      color: var(--muted);
-      margin-right: 0.55rem;
+    .edu img, .exp img {
+      width: 96px;
+      height: 96px;
+      flex-shrink: 0;
+      object-fit: contain;
     }
-    ol.pubs .title { font-weight: 600; }
-    ol.pubs .venue { font-style: italic; }
+    .edu p, .exp p { margin: 0.2rem 0; }
+    .meta { font-size: 0.95rem; }
+    hr.soft { border: 0; border-top: 1px solid var(--line); margin: 0.4rem 0 1.1rem; }
+    .news { list-style: disc; padding-left: 1.2rem; }
+    .news li { margin: 0.45rem 0; }
+    .paper-box {
+      display: flex;
+      gap: 1.2rem;
+      padding: 1.2rem 0;
+      border-bottom: 1px solid var(--line);
+      align-items: flex-start;
+    }
+    .paper-box-image {
+      position: relative;
+      width: 170px;
+      flex-shrink: 0;
+    }
+    .badge {
+      display: inline-block;
+      background: var(--badge);
+      color: #fff;
+      font-size: 0.78rem;
+      padding: 0.22rem 0.65rem;
+      margin-bottom: 0.45rem;
+    }
+    .venue-card {
+      width: 170px;
+      min-height: 92px;
+      background: #f4f7fb;
+      border: 1px solid #e3eaf3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0.7rem;
+      font-weight: 700;
+      color: var(--badge);
+      font-size: 0.92rem;
+    }
+    .paper-box-text p { margin: 0.28rem 0; }
+    .honors { padding-left: 1.2rem; }
+    .honors li { margin: 0.4rem 0; }
     footer {
-      margin-top: 3.5rem;
-      padding-top: 1rem;
-      border-top: 1px solid var(--rule);
+      text-align: center;
       color: var(--muted);
       font-size: 0.88rem;
+      margin-top: 2rem;
     }
-    @media (max-width: 520px) {
-      header { grid-template-columns: 1fr; }
+    @media (max-width: 820px) {
+      .layout { grid-template-columns: 1fr; }
+      .sidebar { position: static; }
+      .paper-box { flex-direction: column; }
+      .paper-box-image, .venue-card { width: 100%; }
     }
   </style>
 </head>
 <body>
-  <main>
-    <header>
-      <img class="avatar" src="https://github.com/supyuxiang.png" alt="Yuxiang Feng" width="88" height="88" />
-      <div>
-        <h1>Yuxiang Feng</h1>
-        <p class="sub">B.S. in Mathematics and Applied Mathematics, Dalian University of Technology</p>
-        <p class="sub">Incoming Ph.D. student, School of Artificial Intelligence, Shanghai Jiao Tong University</p>
-        <p class="sub">大连理工大学数学与应用数学本科 · 上海交通大学人工智能学院待入学博士生</p>
+  <header class="masthead">
+    <nav>
+      <a href="#about-me">Homepage</a>
+      <a href="#about-me">About Me</a>
+      <a href="#education">Education</a>
+      <a href="#news">News</a>
+      <a href="#publications">Publications</a>
+      <a href="#experience">Research Experience</a>
+      <a href="#honors">Honors &amp; Awards</a>
+    </nav>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <img class="avatar" src="images/profile.jpg" alt="Yuxiang Feng" width="168" height="168" />
+      <h1>Yuxiang Feng</h1>
+      <p class="role">Incoming Ph.D. student @ Shanghai Jiao Tong University</p>
+      <ul>
+        <li><i class="fa fa-fw fa-map-marker-alt"></i> Shanghai, China</li>
+        <li><a href="mailto:asd19780427@mail.dlut.edu.cn"><i class="fas fa-fw fa-envelope"></i> Email</a></li>
+        <li><a href="https://github.com/supyuxiang"><i class="fab fa-fw fa-github"></i> GitHub</a></li>
+      </ul>
+    </aside>
+
+    <article>
+      <span class="anchor" id="about-me"></span>
+      <h1>Biography</h1>
+      <p>
+        Hi! I am <strong>Yuxiang Feng</strong>, an undergraduate student majoring in
+        Mathematics and Applied Mathematics at
+        <strong>Dalian University of Technology (DLUT)</strong>,
+        and an <u>incoming Ph.D. student</u> at the
+        <strong>School of Artificial Intelligence, Shanghai Jiao Tong University (SJTU)</strong>.
+      </p>
+      <p>
+        My research interests mainly focus on:
+        <strong>Foundation Models, Representation Learning, and Machine Learning Theory</strong>
+        — in particular the internal mechanisms and capability emergence of foundation models,
+        the knowledge structures encoded in their representations,
+        and learning theory from the perspectives of optimization and generalization.
+      </p>
+      <p>
+        ✨ <em style="color: red;">I am always open to research discussion and collaboration.</em>
+        You can contact me via email.
+      </p>
+
+      <h1 id="education">📖 Education</h1>
+      <div class="edu">
+        <img src="images/sjtu.svg" alt="SJTU" />
+        <div>
+          <p><strong>Shanghai Jiao Tong University (SJTU)</strong>, China</p>
+          <p class="meta"><em>Incoming</em></p>
+          <p class="meta"><strong>Ph.D. in Artificial Intelligence</strong></p>
+          <p class="meta">School of Artificial Intelligence</p>
+        </div>
       </div>
-      <nav>
-        <a href="mailto:asd19780427@mail.dlut.edu.cn">email</a>
-        <a href="https://github.com/supyuxiang">github</a>
-        <a href="http://gitea.fift.org.cn/Yuxiang">gitea</a>
-        <a href="#publications">publications</a>
-      </nav>
-    </header>
+      <hr class="soft" />
+      <div class="edu">
+        <img src="images/dlut.svg" alt="DLUT" />
+        <div>
+          <p><strong>Dalian University of Technology (DLUT)</strong>, China</p>
+          <p class="meta"><em>2023.09 – 2027.07 (expected)</em></p>
+          <p class="meta"><strong>B.S. in Mathematics and Applied Mathematics</strong></p>
+          <p class="meta">Previously Economics, 2023.09 – 2024.07; Mathematics from 2024.09.</p>
+        </div>
+      </div>
 
-    <section>
-      <h2>About</h2>
-      <p>
-        My research focuses on foundation models and representation learning:
-        the internal mechanisms and capability emergence of foundation models,
-        and the knowledge structures encoded in their representations. I am
-        also interested in machine learning theory from the perspectives of
-        optimization and generalization.
-      </p>
-    </section>
+      <h1 id="news">🔥 News</h1>
+      <ul class="news">
+        <li><em>2026</em>: 🎉 <strong>Reflection-Ranker</strong> and <strong>ReaCR</strong> are accepted by <strong>ICIC 2026</strong> as Oral presentations.</li>
+        <li><em>2025</em>: 🎉 First-author paper accepted by <strong>EPEE 2025</strong> (IEEE).</li>
+      </ul>
 
-    <section>
-      <h2>Education</h2>
-      <article class="item">
-        <h3>Shanghai Jiao Tong University</h3>
-        <p class="meta">Incoming Ph.D. · School of Artificial Intelligence</p>
-      </article>
-      <article class="item">
-        <h3>Dalian University of Technology</h3>
-        <p class="meta">2023 – 2027 (expected) · B.S. in Mathematics and Applied Mathematics</p>
-        <p>Previously Economics (2023.09 – 2024.07), then Mathematics from 2024.09.</p>
-      </article>
-    </section>
+      <h1 id="publications">📝 Publications | Preprints</h1>
 
-    <section>
-      <h2>Experience</h2>
-      <article class="item">
-        <h3>Research Intern, Institute of Future Technology, Fudan University</h3>
-        <p class="meta">2026.07 – present · 复旦大学未来技术研究院 · supervised by Prof. Yanghua Xiao</p>
-      </article>
-      <article class="item">
-        <h3>Research Assistant, Institute for Artificial Intelligence, Peking University</h3>
-        <p class="meta">2025.03 – 2026.05 · Beijing · supervised by Prof. Yisen Wang</p>
-      </article>
-    </section>
+      <div class="paper-box">
+        <div class="paper-box-image">
+          <div class="badge">AAAI 2027</div>
+          <div class="venue-card">Under review</div>
+        </div>
+        <div class="paper-box-text">
+          <p><strong>GARL: A Guidance-Aware Reinforcement Learning Framework for Dual-Agent Reasoning</strong></p>
+          <p><strong>Yuxiang Feng</strong> et al.</p>
+          <p><strong>TL;DR:</strong> <em>A Coach–Actor dual-agent RL framework combining DPO and GRPO. On five math-reasoning benchmarks (including MATH500 and AIME2024), it improves Qwen2.5-7B-Instruct, Qwen3-4B, and LLaMA3.2-3B.</em></p>
+        </div>
+      </div>
 
-    <section id="publications">
-      <h2>Publications</h2>
-      <ol class="pubs">
+      <div class="paper-box">
+        <div class="paper-box-image">
+          <div class="badge">NeurIPS 2027</div>
+          <div class="venue-card">Under review</div>
+        </div>
+        <div class="paper-box-text">
+          <p><strong>Diffusion Ranker: Lightweight Reward Modeling from Internal States for Parallel Scaling in Image Diffusion Models</strong></p>
+          <p><strong>Yuxiang Feng</strong> et al.</p>
+          <p><strong>TL;DR:</strong> <em>A lightweight ranker reads intermediate hidden states of diffusion models to select denoising trajectories, replacing expensive external reward models and reducing scoring overhead by three orders of magnitude.</em></p>
+        </div>
+      </div>
+
+      <div class="paper-box">
+        <div class="paper-box-image">
+          <div class="badge">ICIC 2026 Oral</div>
+          <div class="venue-card">Accepted</div>
+        </div>
+        <div class="paper-box-text">
+          <p><strong>Reflection-Ranker: Efficient Reflection Selection via Hidden-State Utility for Mathematical Reasoning</strong></p>
+          <p><strong>Yuxiang Feng</strong> et al.</p>
+          <p><strong>TL;DR:</strong> <em>A 0.46M-parameter ranker decodes latent utility from hidden states for reflection-based parallel scaling, cutting inference cost by three orders of magnitude versus external LM reward models.</em></p>
+        </div>
+      </div>
+
+      <div class="paper-box">
+        <div class="paper-box-image">
+          <div class="badge">ICIC 2026 Oral</div>
+          <div class="venue-card">Accepted</div>
+        </div>
+        <div class="paper-box-text">
+          <p><strong>ReaCR: Reasoning-Conditioned Representation Learning for Fake News Detection</strong></p>
+          <p><strong>Yuxiang Feng</strong> et al.</p>
+          <p><strong>TL;DR:</strong> <em>A dual-representation framework that fuses contextual and reasoning-trajectory features from frozen LLMs via cross-attention for lightweight fake-news detection.</em></p>
+        </div>
+      </div>
+
+      <div class="paper-box">
+        <div class="paper-box-image">
+          <div class="badge">EPEE 2025</div>
+          <div class="venue-card">IEEE</div>
+        </div>
+        <div class="paper-box-text">
+          <p><strong>Dynamic Prediction of Fuel Cooling and Optimization for Energy Saving and Emission Reduction Based on Ensemble Machine Learning</strong></p>
+          <p><strong>Yuxiang Feng</strong> et al.</p>
+          <p><strong>TL;DR:</strong> <em>An ensemble learning model for dynamic prediction of fuel cooling systems, with feature interpretability analysis.</em></p>
+        </div>
+      </div>
+
+      <h1 id="experience">🔬 Research &amp; Intern Experience</h1>
+      <div class="exp">
+        <img src="images/fudan.svg" alt="Fudan University" />
+        <div>
+          <p><strong>Institute of Future Technology, Fudan University</strong></p>
+          <p class="meta"><em>2026.07 – present, Research Intern, Shanghai, China</em></p>
+          <p class="meta">Supervised by <a href="http://kw.fudan.edu.cn/people/xiaoyanghua/">Prof. Yanghua Xiao</a></p>
+        </div>
+      </div>
+      <hr class="soft" />
+      <div class="exp">
+        <img src="images/pku.svg" alt="Peking University" />
+        <div>
+          <p><strong>Institute for Artificial Intelligence, Peking University</strong></p>
+          <p class="meta"><em>2025.03 – 2026.05, Research Assistant, Beijing, China</em></p>
+          <p class="meta">Supervised by <a href="https://yisenwang.github.io/">Prof. Yisen Wang</a></p>
+        </div>
+      </div>
+
+      <h1 id="honors">🥇 Honors and Awards</h1>
+      <ul class="honors">
         <li>
-          <span class="title">GARL: A Guidance-Aware Reinforcement Learning Framework for Dual-Agent Reasoning.</span>
-          First-author submission to <span class="venue">AAAI 2027</span>.
+          <strong>First Prize</strong>, Final Round of the 15th Chinese Mathematics Competition for College Students
+          (Mathematics Major, Lower-Grade Group)
         </li>
-        <li>
-          <span class="title">Diffusion Ranker: Lightweight Reward Modeling from Internal States for Parallel Scaling in Image Diffusion Models.</span>
-          Submitted to <span class="venue">NeurIPS 2027</span>; ongoing extension toward TPAMI.
-        </li>
-        <li>
-          <span class="title">Reflection-Ranker: Efficient Reflection Selection via Hidden-State Utility for Mathematical Reasoning.</span>
-          First-author paper, <span class="venue">ICIC 2026</span> (Oral).
-        </li>
-        <li>
-          <span class="title">ReaCR: Reasoning-Conditioned Representation Learning for Fake News Detection.</span>
-          First-author paper, <span class="venue">ICIC 2026</span> (Oral).
-        </li>
-        <li>
-          <span class="title">Dynamic Prediction of Fuel Cooling and Optimization for Energy Saving and Emission Reduction Based on Ensemble Machine Learning.</span>
-          First-author paper, <span class="venue">EPEE 2025</span> (IEEE).
-        </li>
-      </ol>
-    </section>
+      </ul>
 
-    <section>
-      <h2>Code</h2>
-      <article class="item">
-        <h3><a href="http://gitea.fift.org.cn/Yuxiang/hidden_probing">Yuxiang/hidden_probing</a></h3>
-        <p class="meta">Multilingual probing and language-set scoring</p>
-      </article>
-      <article class="item">
-        <h3><a href="http://gitea.fift.org.cn/Yuxiang/clip-alignment">Yuxiang/clip-alignment</a></h3>
-        <p class="meta">CLIP representation diagnostics</p>
-      </article>
-    </section>
-
-    <section>
-      <h2>Contact</h2>
-      <p>
-        Email: <a href="mailto:asd19780427@mail.dlut.edu.cn">asd19780427@mail.dlut.edu.cn</a><br />
-        GitHub: <a href="https://github.com/supyuxiang">github.com/supyuxiang</a>
-      </p>
-    </section>
-
-    <footer>
-      Hosted on <a href="https://github.com/supyuxiang/yxfeng.github.io">GitHub Pages</a>.
-    </footer>
-  </main>
+      <footer>
+        <p><em>Latest updated in Aug. 2026</em></p>
+        <p>© Yuxiang Feng</p>
+      </footer>
+    </article>
+  </div>
 </body>
 </html>
