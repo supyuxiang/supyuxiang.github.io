@@ -1,6 +1,6 @@
 # yxfeng.github.io
 
-Personal academic homepage of [Yuxiang Feng](https://github.com/supyuxiang).
+Personal academic homepage of [Yuxiang Feng](https://github.com/supyuxiang) (`yxfeng.github.io`).
 
 After GitHub Pages is enabled on the `main` branch:
 
